@@ -1,0 +1,34 @@
+{
+	"task-bare": {
+		"prefix": ["task", "tb"],
+		"body": [
+			"task ${1:_label} \"${2:_name}\" {",
+			"\t$0",
+			"} # end task ${1:_label}"
+		],
+		"description": "task: empty"
+	},
+	"task-effort-allocate": {
+		"prefix": ["task", "te"],
+		"body": [
+			"task ${1:_label} \"${2:_name}\" {",
+			"\teffort ${3:_effort}",
+			"\tallocate ${4:_allocate}",
+			"} # end task ${1:_label}" ,
+			"$0"
+		],
+		"description": "task: effort & allocate"
+	},
+	"task-depends-effort-allocate": {
+		"prefix": ["task", "td"],
+		"body": [
+			"task ${1:_label} \"${2:_name}\" {",
+			"\tdepends ${3:_depends}",
+			"\teffort ${4:_effort}",
+			"\tallocate ${5:_allocate}",
+			"} # end task ${1:_label}" ,
+			"$0"
+		],
+		"description": "task: depends, effort & allocate"
+	}
+}

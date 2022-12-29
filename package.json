@@ -21,6 +21,10 @@
       "language": "tj3",
       "scopeName": "source.tj3",
       "path": "./syntaxes/tj3.tmLanguage.json"
+    }],
+    "snippets": [{
+        "language": "tj3",
+        "path": "./snippets/tj3.json"
     }]
   }
 }
