@@ -1,0 +1,108 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "TaskJuggler III",
+	"scopeName": "source.tj3",
+	"fileTypes": [
+		"tji",
+		"tjp"
+	],
+	"patterns": [
+		{
+			"include": "#command-index-export"
+		},
+		{
+			"include": "#commands"
+		},
+		{
+			"include": "#datetime"
+		},
+		{
+			"include": "#export-name"
+		},
+		{
+			"include": "#comment"
+		}
+	],
+	"repository": {
+		"command-index-export": {
+			"patterns": [
+				{
+					"name": "meta.structure.comindexp.tj3",
+					"match": "\\b([a-z]+)\\b[\\t ]+\\b([a-z0-9_]+)\\b[\\t ]+(\".*\")",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "#commands"
+								}
+							]
+						},
+						"2": {
+							"name": "storage.type.index.tj3"
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "#export-name"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"commands": {
+			"patterns": [
+				{
+					"name": "keyword.control.tj3",
+					"match": "\\b(account|accountprefix|accountreport|accountroot|active|adopt|aggregate|alert|alertlevels|allocate|alternative|author|auxdir|balance|booking|caption|cellcolor|celltext|center|charge|chargeset|columnid|columns|complete|copyright|credits|currency|currencyformat|dailymax|dailymin|dailyworkinghours|date|definitions|depends|details|disabled|duration|efficiency|effort|effortdone|effortleft|email|enabled|end|endcredit|epilog|export|extend|fail|flags|fontcolor|footer|formats|functions|gapduration|gaplength|halign|hasalert|header|headline|height|hideaccount|hidejournalentry|hidereport|hideresource|hidetask|icalreport|include|inherit|interval1|interval2|interval3|interval4|isactive|ischildof|isdependencyof|isdutyof|isfeatureof|isleaf|ismilestone|isongoing|isresource|isresponsibilityof|istask|isvalid|journalattributes|journalentry|journalmode|leaveallowance|leaves|left|length|limits|listitem|listtype|loadunit|logicalexpression|logicalflagexpression|macro|managers|mandatory|markdate|maxend|maximum|maxstart|milestone|minend|minimum|minstart|monthlymax|monthlymin|navigator|newtask|nikureport|note|novevents|now|number|numberformat|onend|onstart|opennodes|outputdir|overtime|period|persistent|precedes|priority|project|projectid|projectids|projection|prolog|properties|purge|rate|rawhtmlhead|reference|remaining|replace|reportprefix|resource|resourceattributes|resourceprefix|resourcereport|resourceroot|resources|responsible|richtext|right|rollupaccount|rollupresource|rolluptask|scale|scenario|scenarios|scenariospecific|scheduled|scheduling|schedulingmode|select|selfcontained|shift|shifts|shorttimeformat|sloppy|sortaccounts|sortjournalentries|sortresources|sorttasks|start|startcredit|status|statussheet|statussheetreport|strict|summary|supplement|tagfile|task|taskattributes|taskprefix|taskreport|taskroot|text|textreport|timeformat|timeformat1|timeformat2|timeoff|timesheet|timesheetreport|timezone|timingresolution|title|tooltip|tracereport|trackingscenario|treelevel|vacation|warn|weeklymax|weeklymin|weekstartsmonday|weekstartssunday|width|work|workinghours|yearlyworkingdays)\\b",
+					"comment": "create commands with: tj3man | tail -n +10 | sed -E \\'s/\\..*//\\' | sort | uniq | tr \\'\n\\' \\'|\\'"
+				}
+			]
+		},
+		"datetime": {
+			"patterns": [
+				{
+					"name": "constant.numeric.datetime.fix.tj3",
+					"match": "\\b(\\d{4}-\\d{2}-\\d{2}(-\\d{2}:\\d{2})?)\\b"
+				},
+				{
+					"name": "constant.numeric.datetime.relative.tj3",
+					"match": "([+-])?\\b((\\d+[hdwmy])|(\\d+\\.\\d+[hdwmy]))\\b"
+				}
+			]
+		},
+		"export-name": {
+			"name": "string.quoted.double.tj3",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"include": "#constant-escape"
+				}
+			]
+		},
+		"constant-escape": {
+			"patterns": [
+				{
+					"name": "constant.character.escape.tj3",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.tj3",
+					"begin": "(\\#|//)",
+					"end": "$"
+				},
+				{
+					"name":"comment.block.tj3",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		}
+	}
+}

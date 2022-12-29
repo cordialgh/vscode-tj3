@@ -1,0 +1,26 @@
+{
+  "name": "tj3-lang",
+  "publisher": "cordialgh",
+  "displayName": "tj3-lang",
+  "description": "TaskHuggler III (tj3) language support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tj3",
+      "aliases": ["tj3", "tj3"],
+      "extensions": ["tji", "tjp"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "tj3",
+      "scopeName": "source.tj3",
+      "path": "./syntaxes/tj3.tmLanguage.json"
+    }]
+  }
+}
