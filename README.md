@@ -2,7 +2,11 @@
 
 Visual Studio Code - Taskjuggler 3 tmLanguage extentsion
 
-## installation
+## get release
+
+[v0.0.1](https://github.com/cordialgh/vscode-tj3/releases/tag/v0.0.1)
+
+## installaltion manual
 
 - clone repository
 - install vsce
