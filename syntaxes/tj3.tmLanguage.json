@@ -20,6 +20,9 @@
 			"include": "#export-name"
 		},
 		{
+			"include": "#export-string"
+		},
+		{
 			"include": "#comment"
 		}
 	],
@@ -76,6 +79,16 @@
 			"name": "string.quoted.double.tj3",
 			"begin": "\"",
 			"end": "\"",
+			"patterns": [
+				{
+					"include": "#constant-escape"
+				}
+			]
+		},
+		"export-string": {
+			"name": "string.quoted.single.tj3",
+			"begin": "'",
+			"end": "'",
 			"patterns": [
 				{
 					"include": "#constant-escape"
