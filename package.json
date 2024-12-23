@@ -3,13 +3,17 @@
   "publisher": "cordialgh",
   "displayName": "tj3-lang",
   "description": "TaskHuggler III (tj3) language support",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
     "Programming Languages"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cordialgh/vscode-tj3.git"
+  },
   "contributes": {
     "languages": [{
       "id": "tj3",
